@@ -308,7 +308,7 @@ RectTransform:
   m_GameObject: {fileID: 1323661475590176}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 1.354, y: 1.354, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 224534383298239444}
@@ -316,7 +316,7 @@ RectTransform:
   - {fileID: 224171138694512196}
   - {fileID: 224361065860011120}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -343,7 +343,7 @@ MonoBehaviour:
   wheelPiecesParent: {fileID: 224747704442984086}
   _spinButton: {fileID: 0}
   spinDuration: 5
-  wheelSize: 1.5
+  wheelSize: 1.354
   wheelPieces:
   - Icon: {fileID: 21300000, guid: 6e980baa502e72148bbc79fb42c81d10, type: 3}
     Label: Lorem
