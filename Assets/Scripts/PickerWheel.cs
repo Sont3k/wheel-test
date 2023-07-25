@@ -7,20 +7,21 @@ using Random = UnityEngine.Random;
 
 public class PickerWheel : MonoBehaviour
 {
-    [Header("References :")]
+    [Header("References")]
     [SerializeField] private GameObject linePrefab;
     [SerializeField] private Transform linesParent;
     [SerializeField] private Transform PickerWheelTransform;
     [SerializeField] private Transform wheelCircle;
     [SerializeField] private GameObject wheelPiecePrefab;
     [SerializeField] private Transform wheelPiecesParent;
+    [SerializeField] private Button _spinButton;
 
-    [Header("Picker wheel settings :")]
+    [Header("Wheel Settings")]
     [Range(1, 20)] public int spinDuration = 8;
     [SerializeField] [Range(.2f, 2f)] 
     private float wheelSize = 1f;
 
-    [Header("Picker wheel pieces :")]
+    [Header("Pieces")]
     public WheelPiece[] wheelPieces;
 
     // Events
@@ -57,6 +58,11 @@ public class PickerWheel : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        _spinButton.onClick.AddListener(Spin);
+    }
+
     private void Start()
     {
         _pieceAngle = 360f / wheelPieces.Length;
@@ -68,6 +74,11 @@ public class PickerWheel : MonoBehaviour
         CalculateWeightsAndIndices();
         if (_nonZeroChancesIndices.Count == 0)
             Debug.LogError("You can't set all pieces chance to zero");
+    }
+
+    private void OnDisable()
+    {
+        _spinButton.onClick.RemoveAllListeners();
     }
 
     private void Generate()
