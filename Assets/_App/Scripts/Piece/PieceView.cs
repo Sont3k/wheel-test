@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace _App.Scripts
+namespace _App.Scripts.Piece
 {
     public class PieceView : MonoBehaviour
     {

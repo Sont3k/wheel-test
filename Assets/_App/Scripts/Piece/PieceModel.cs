@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace _App.Scripts
+namespace _App.Scripts.Piece
 {
     [System.Serializable]
     public class PieceModel
