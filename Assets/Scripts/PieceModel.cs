@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [System.Serializable]
-public class WheelPiece
+public class PieceModel
 {
     public Sprite Icon;
     public string Label;

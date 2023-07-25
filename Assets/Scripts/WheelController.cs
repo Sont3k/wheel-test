@@ -5,14 +5,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-public class PickerWheel : MonoBehaviour
+public class WheelController : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private GameObject linePrefab;
     [SerializeField] private Transform linesParent;
     [SerializeField] private Transform PickerWheelTransform;
     [SerializeField] private Transform wheelCircle;
-    [SerializeField] private GameObject wheelPiecePrefab;
+    [SerializeField] private PieceView wheelPiecePrefab;
     [SerializeField] private Transform wheelPiecesParent;
     [SerializeField] private Button _spinButton;
 
@@ -22,11 +22,11 @@ public class PickerWheel : MonoBehaviour
     private float wheelSize = 1f;
 
     [Header("Pieces")]
-    public WheelPiece[] wheelPieces;
+    public PieceModel[] wheelPieces;
 
     // Events
     private Action _onSpinStartEvent;
-    private Action<WheelPiece> _onSpinEndEvent;
+    private Action<PieceModel> _onSpinEndEvent;
 
     private bool _isSpinning;
 
@@ -85,7 +85,7 @@ public class PickerWheel : MonoBehaviour
     {
         wheelPiecePrefab = InstantiatePiece();
 
-        var rt = wheelPiecePrefab.transform.GetChild(0).GetComponent<RectTransform>();
+        var rt = wheelPiecePrefab.PieceHolder.GetComponent<RectTransform>();
         var pieceWidth = Mathf.Lerp(_pieceMinSize.x, _pieceMaxSize.x,
             1f - Mathf.InverseLerp(_piecesMin, _piecesMax, wheelPieces.Length));
         var pieceHeight = Mathf.Lerp(_pieceMinSize.y, _pieceMaxSize.y,
@@ -98,31 +98,32 @@ public class PickerWheel : MonoBehaviour
             DrawPiece(i);
         }
 
-        Destroy(wheelPiecePrefab);
+        Destroy(wheelPiecePrefab.gameObject);
     }
 
     private void DrawPiece(int index)
     {
-        var piece = wheelPieces[index];
-        var pieceTrns = InstantiatePiece().transform.GetChild(0);
+        var pieceData = wheelPieces[index];
+        var instantiatedPiece = InstantiatePiece();
+        instantiatedPiece.SetData(pieceData.Icon, pieceData.Label, pieceData.Amount.ToString());
 
-        pieceTrns.GetChild(0).GetComponent<Image>().sprite = piece.Icon;
-        pieceTrns.GetChild(1).GetComponent<Text>().text = piece.Label;
-        pieceTrns.GetChild(2).GetComponent<Text>().text = piece.Amount.ToString();
-
-        //Line
-        var lineTrns = Instantiate(linePrefab, linesParent.position, Quaternion.identity, linesParent)
-            .transform;
-        lineTrns.RotateAround(wheelPiecesParent.position, Vector3.back, (_pieceAngle * index) + _halfPieceAngle);
-        pieceTrns.RotateAround(wheelPiecesParent.position, Vector3.back, _pieceAngle * index);
+        DrawLine(index, instantiatedPiece.PieceHolder);
     }
 
-    private GameObject InstantiatePiece()
+    private void DrawLine(int index, Transform pieceHolder)
+    {
+        var line = Instantiate(linePrefab, linesParent.position, Quaternion.identity, linesParent);
+        
+        line.transform.RotateAround(wheelPiecesParent.position, Vector3.back, (_pieceAngle * index) + _halfPieceAngle);
+        pieceHolder.RotateAround(wheelPiecesParent.position, Vector3.back, _pieceAngle * index);
+    }
+
+    private PieceView InstantiatePiece()
     {
         return Instantiate(wheelPiecePrefab, wheelPiecesParent.position, Quaternion.identity, wheelPiecesParent);
     }
 
-    public void Spin()
+    private void Spin()
     {
         if (_isSpinning) return;
         
