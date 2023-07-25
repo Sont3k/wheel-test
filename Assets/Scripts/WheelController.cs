@@ -83,7 +83,7 @@ public class WheelController : MonoBehaviour
 
     private void Generate()
     {
-        wheelPiecePrefab = InstantiatePiece();
+        wheelPiecePrefab = Instantiate(wheelPiecePrefab, wheelPiecesParent);
 
         var rt = wheelPiecePrefab.PieceHolder.GetComponent<RectTransform>();
         var pieceWidth = Mathf.Lerp(_pieceMinSize.x, _pieceMaxSize.x,
@@ -104,7 +104,7 @@ public class WheelController : MonoBehaviour
     private void DrawPiece(int index)
     {
         var pieceData = wheelPieces[index];
-        var instantiatedPiece = InstantiatePiece();
+        var instantiatedPiece = Instantiate(wheelPiecePrefab, wheelPiecesParent);
         instantiatedPiece.SetData(pieceData.Icon, pieceData.Label, pieceData.Amount.ToString());
 
         DrawLine(index, instantiatedPiece.PieceHolder);
@@ -116,11 +116,6 @@ public class WheelController : MonoBehaviour
         
         line.transform.RotateAround(wheelPiecesParent.position, Vector3.back, (_pieceAngle * index) + _halfPieceAngle);
         pieceHolder.RotateAround(wheelPiecesParent.position, Vector3.back, _pieceAngle * index);
-    }
-
-    private PieceView InstantiatePiece()
-    {
-        return Instantiate(wheelPiecePrefab, wheelPiecesParent.position, Quaternion.identity, wheelPiecesParent);
     }
 
     private void Spin()
