@@ -5,6 +5,7 @@ public class WheelPiece
 {
     public Sprite Icon;
     public string Label;
+    public AudioClip Audio;
 
     [Tooltip("Reward amount")] 
     public int Amount;
