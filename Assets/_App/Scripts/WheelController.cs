@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using _App.Scripts.Piece;
+﻿using _App.Scripts.Piece;
 using DG.Tweening;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -25,10 +23,6 @@ namespace _App.Scripts
         [Header("Pieces")]
         public PieceModel[] wheelPieces;
 
-        // Events
-        private Action _onSpinStartEvent;
-        private Action<PieceModel> _onSpinEndEvent;
-
         private bool _isSpinning;
 
         private readonly Vector2 _pieceMinSize = new(81f, 146f);
@@ -40,18 +34,13 @@ namespace _App.Scripts
         private float _halfPieceAngle;
         private float _halfPieceAngleWithPaddings;
 
-        private double _accumulatedWeight;
-        private readonly System.Random _rand = new();
-
-        private readonly List<int> _nonZeroChancesIndices = new();
-
         private void OnValidate()
         {
             if (PickerWheelTransform != null)
             {
                 PickerWheelTransform.localScale = new Vector3(wheelSize, wheelSize, 1f);
             }
-
+            
             if (wheelPieces.Length > _piecesMax || wheelPieces.Length < _piecesMin)
             {
                 Debug.LogError("[ PickerWheelwheel ]  pieces length must be between " + _piecesMin + " and " +
@@ -66,10 +55,7 @@ namespace _App.Scripts
             _halfPieceAngleWithPaddings = _halfPieceAngle - (_halfPieceAngle / 4f);
 
             Generate();
-
-            CalculateWeightsAndIndices();
-            if (_nonZeroChancesIndices.Count == 0)
-                Debug.LogError("You can't set all pieces chance to zero");
+            AssignIndexes();
         }
 
         private void Generate()
@@ -109,22 +95,13 @@ namespace _App.Scripts
             pieceTransform.RotateAround(wheelPiecesParent.position, Vector3.back, _pieceAngle * index);
         }
 
-        private void Spin(int pieceIndex = -1)
+        private void Spin(int pieceIndex)
         {
             if (_isSpinning) return;
         
             _isSpinning = true;
-            _onSpinStartEvent?.Invoke();
 
-            var index = pieceIndex != -1 ? pieceIndex : GetRandomPieceIndex();
-            var piece = wheelPieces[index];
-
-            if (piece.Chance == 0 && _nonZeroChancesIndices.Count != 0)
-            {
-                index = _nonZeroChancesIndices[Random.Range(0, _nonZeroChancesIndices.Count)];
-                piece = wheelPieces[index];
-            }
-
+            var index = pieceIndex;
             var angle = -(_pieceAngle * index);
 
             var rightOffset = (angle - _halfPieceAngleWithPaddings) % 360;
@@ -156,46 +133,15 @@ namespace _App.Scripts
                 .OnComplete(() =>
                 {
                     _isSpinning = false;
-                    _onSpinEndEvent?.Invoke(piece);
-
-                    _onSpinStartEvent = null;
-                    _onSpinEndEvent = null;
                 });
         }
 
-        private int GetRandomPieceIndex()
-        {
-            var r = _rand.NextDouble() * _accumulatedWeight;
-
-            for (var i = 0; i < wheelPieces.Length; i++)
-            {
-                if (wheelPieces[i].Weight >= r)
-                {
-                    return i;
-                }
-            }
-
-            return 0;
-        }
-
-        private void CalculateWeightsAndIndices()
+        private void AssignIndexes()
         {
             for (var i = 0; i < wheelPieces.Length; i++)
             {
                 var piece = wheelPieces[i];
-
-                //add weights:
-                _accumulatedWeight += piece.Chance;
-                piece.Weight = _accumulatedWeight;
-
-                //add index :
                 piece.Index = i;
-
-                //save non zero chance indices:
-                if (piece.Chance > 0)
-                {
-                    _nonZeroChancesIndices.Add(i);
-                }
             }
         }
         
