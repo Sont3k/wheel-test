@@ -337,42 +337,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   linePrefab: {fileID: 1258666099951334, guid: 052d5aa0d2632e04c90d4d5027f9dd37, type: 3}
   linesParent: {fileID: 224553569175701576}
-  PickerWheelTransform: {fileID: 224511889338460380}
   wheelCircle: {fileID: 224131085478986710}
   wheelPiecePrefab: {fileID: 1477969062711435828, guid: a10fef7bc23b5a64a929387e97c9b936, type: 3}
   wheelPiecesParent: {fileID: 224747704442984086}
   spinDuration: 3
-  wheelSize: 1.354
   _isIndicatorOnTop: 0
   wheelPieces:
   - Icon: {fileID: 21300000, guid: 6e980baa502e72148bbc79fb42c81d10, type: 3}
     Label: Lorem
     Audio: {fileID: 0}
     Amount: 10
-  - Icon: {fileID: 21300002, guid: 6e980baa502e72148bbc79fb42c81d10, type: 3}
-    Label: Iposum
+  - Icon: {fileID: 0}
+    Label: 
     Audio: {fileID: 0}
-    Amount: 20
-  - Icon: {fileID: 21300004, guid: 6e980baa502e72148bbc79fb42c81d10, type: 3}
-    Label: Tupala
+    Amount: 0
+  - Icon: {fileID: 0}
+    Label: 
     Audio: {fileID: 0}
-    Amount: 30
-  - Icon: {fileID: 21300030, guid: 6e980baa502e72148bbc79fb42c81d10, type: 3}
-    Label: Consectetur
+    Amount: 0
+  - Icon: {fileID: 0}
+    Label: 
     Audio: {fileID: 0}
-    Amount: 40
-  - Icon: {fileID: 21300008, guid: 6e980baa502e72148bbc79fb42c81d10, type: 3}
-    Label: Vallar
+    Amount: 0
+  - Icon: {fileID: 0}
+    Label: 
     Audio: {fileID: 0}
-    Amount: 60
-  - Icon: {fileID: 21300008, guid: 6e980baa502e72148bbc79fb42c81d10, type: 3}
-    Label: Vallar
-    Audio: {fileID: 0}
-    Amount: 60
-  - Icon: {fileID: 21300008, guid: 6e980baa502e72148bbc79fb42c81d10, type: 3}
-    Label: Vallar
-    Audio: {fileID: 0}
-    Amount: 60
+    Amount: 0
 --- !u!1 &1743374398951528
 GameObject:
   m_ObjectHideFlags: 0

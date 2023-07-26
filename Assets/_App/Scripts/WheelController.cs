@@ -1,4 +1,5 @@
-﻿using _App.Scripts.Piece;
+﻿using System;
+using _App.Scripts.Piece;
 using DG.Tweening;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -10,14 +11,12 @@ namespace _App.Scripts
         [Header("References")]
         [SerializeField] private GameObject linePrefab;
         [SerializeField] private Transform linesParent;
-        [SerializeField] private Transform PickerWheelTransform;
         [SerializeField] private Transform wheelCircle;
         [SerializeField] private PieceView wheelPiecePrefab;
         [SerializeField] private Transform wheelPiecesParent;
 
         [Header("Wheel Settings")]
         [Range(1, 20)] public int spinDuration = 8;
-        [SerializeField] [Range(.2f, 2f)] private float wheelSize = 1f;
         [SerializeField] private bool _isIndicatorOnTop;
 
         [Header("Pieces")]
@@ -36,16 +35,7 @@ namespace _App.Scripts
 
         private void OnValidate()
         {
-            if (PickerWheelTransform != null)
-            {
-                PickerWheelTransform.localScale = new Vector3(wheelSize, wheelSize, 1f);
-            }
-            
-            if (wheelPieces.Length > _piecesMax || wheelPieces.Length < _piecesMin)
-            {
-                Debug.LogError("[ PickerWheelwheel ]  pieces length must be between " + _piecesMin + " and " +
-                               _piecesMax);
-            }
+            HandlePiecesSizeInEditor();
         }
 
         private void Start()
@@ -56,6 +46,21 @@ namespace _App.Scripts
 
             Generate();
             AssignIndexes();
+        }
+        
+        private void HandlePiecesSizeInEditor()
+        {
+            if (wheelPieces.Length < _piecesMin)
+            {
+                Debug.LogError($"Pieces array should be more than {_piecesMin}");
+                Array.Resize(ref wheelPieces, _piecesMin);
+            }
+
+            if (wheelPieces.Length > _piecesMax)
+            {
+                Debug.LogError($"Pieces array should be less or equal to {_piecesMax}");
+                Array.Resize(ref wheelPieces, _piecesMax);
+            }
         }
 
         private void Generate()
