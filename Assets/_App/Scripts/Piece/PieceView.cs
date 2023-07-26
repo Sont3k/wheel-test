@@ -6,12 +6,10 @@ namespace _App.Scripts.Piece
 {
     public class PieceView : MonoBehaviour
     {
-        [SerializeField] private Transform _pieceHolder;
         [SerializeField] private Image _icon;
         [SerializeField] private TMP_Text _label;
         [SerializeField] private TMP_Text _amount;
 
-        public Transform PieceHolder => _pieceHolder;
         public Image Icon => _icon;
         public TMP_Text Label => _label;
         public TMP_Text Amount => _amount;

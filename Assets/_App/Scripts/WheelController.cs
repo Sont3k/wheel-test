@@ -88,7 +88,7 @@ namespace _App.Scripts
         {
             wheelPiecePrefab = Instantiate(wheelPiecePrefab, wheelPiecesParent);
 
-            var rt = wheelPiecePrefab.PieceHolder.GetComponent<RectTransform>();
+            var rt = wheelPiecePrefab.GetComponent<RectTransform>();
             var pieceWidth = Mathf.Lerp(_pieceMinSize.x, _pieceMaxSize.x,
                 1f - Mathf.InverseLerp(_piecesMin, _piecesMax, wheelPieces.Length));
             var pieceHeight = Mathf.Lerp(_pieceMinSize.y, _pieceMaxSize.y,
@@ -110,15 +110,15 @@ namespace _App.Scripts
             var instantiatedPiece = Instantiate(wheelPiecePrefab, wheelPiecesParent);
             instantiatedPiece.SetData(pieceData.Icon, pieceData.Label, pieceData.Amount.ToString());
 
-            DrawLine(index, instantiatedPiece.PieceHolder);
+            DrawLine(index, instantiatedPiece.transform);
         }
 
-        private void DrawLine(int index, Transform pieceHolder)
+        private void DrawLine(int index, Transform pieceTransform)
         {
             var line = Instantiate(linePrefab, linesParent.position, Quaternion.identity, linesParent);
         
             line.transform.RotateAround(wheelPiecesParent.position, Vector3.back, (_pieceAngle * index) + _halfPieceAngle);
-            pieceHolder.RotateAround(wheelPiecesParent.position, Vector3.back, _pieceAngle * index);
+            pieceTransform.RotateAround(wheelPiecesParent.position, Vector3.back, _pieceAngle * index);
         }
 
         private void Spin()
