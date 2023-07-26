@@ -53,13 +53,11 @@ namespace _App.Scripts
             if (wheelPieces.Length < _piecesMin)
             {
                 Debug.LogError($"Pieces array should be more than {_piecesMin}");
-                Array.Resize(ref wheelPieces, _piecesMin);
             }
 
             if (wheelPieces.Length > _piecesMax)
             {
                 Debug.LogError($"Pieces array should be less or equal to {_piecesMax}");
-                Array.Resize(ref wheelPieces, _piecesMax);
             }
         }
 

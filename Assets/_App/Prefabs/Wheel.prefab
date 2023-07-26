@@ -344,25 +344,25 @@ MonoBehaviour:
   _isIndicatorOnTop: 0
   wheelPieces:
   - Icon: {fileID: 21300000, guid: 6e980baa502e72148bbc79fb42c81d10, type: 3}
-    Label: Lorem
+    Label: Afeli
     Audio: {fileID: 0}
-    Amount: 10
-  - Icon: {fileID: 0}
-    Label: 
+    Amount: 50
+  - Icon: {fileID: 21300028, guid: 6e980baa502e72148bbc79fb42c81d10, type: 3}
+    Label: AK
     Audio: {fileID: 0}
-    Amount: 0
-  - Icon: {fileID: 0}
-    Label: 
+    Amount: 150
+  - Icon: {fileID: 21300016, guid: 6e980baa502e72148bbc79fb42c81d10, type: 3}
+    Label: Joseph
     Audio: {fileID: 0}
-    Amount: 0
-  - Icon: {fileID: 0}
-    Label: 
+    Amount: 500
+  - Icon: {fileID: 21300012, guid: 6e980baa502e72148bbc79fb42c81d10, type: 3}
+    Label: Gregor
     Audio: {fileID: 0}
-    Amount: 0
-  - Icon: {fileID: 0}
-    Label: 
+    Amount: 250
+  - Icon: {fileID: 21300032, guid: 6e980baa502e72148bbc79fb42c81d10, type: 3}
+    Label: Nyx
     Audio: {fileID: 0}
-    Amount: 0
+    Amount: 600
 --- !u!1 &1743374398951528
 GameObject:
   m_ObjectHideFlags: 0
