@@ -101,8 +101,7 @@ namespace _App.Scripts
         
             _isSpinning = true;
 
-            var index = pieceIndex;
-            var angle = -(_pieceAngle * index);
+            var angle = -(_pieceAngle * pieceIndex);
 
             var rightOffset = (angle - _halfPieceAngleWithPaddings) % 360;
             var leftOffset = (angle + _halfPieceAngleWithPaddings) % 360;
