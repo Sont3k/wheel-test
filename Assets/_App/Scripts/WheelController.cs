@@ -19,6 +19,7 @@ namespace _App.Scripts
         [Range(1, 20)] public int spinDuration = 8;
         [SerializeField] [Range(.2f, 2f)] 
         private float wheelSize = 1f;
+        [SerializeField] private bool _isIndicatorOnTop;
 
         [Header("Pieces")]
         public PieceModel[] wheelPieces;
@@ -101,7 +102,7 @@ namespace _App.Scripts
         
             IsSpinning = true;
 
-            var angle = -(_pieceAngle * pieceIndex);
+            var angle = GetPieceAngle(pieceIndex);
 
             var rightOffset = (angle - _halfPieceAngleWithPaddings) % 360;
             var leftOffset = (angle + _halfPieceAngleWithPaddings) % 360;
@@ -135,6 +136,22 @@ namespace _App.Scripts
                 });
         }
 
+        private float GetPieceAngle(int pieceIndex)
+        {
+            float angle;
+            
+            if (_isIndicatorOnTop)
+            {
+                angle = -(_pieceAngle * pieceIndex);
+            }
+            else
+            {
+                angle = -(_pieceAngle * pieceIndex) + 180;
+            }
+            
+            return angle;
+        }
+        
         private void AssignIndexes()
         {
             for (var i = 0; i < wheelPieces.Length; i++)
