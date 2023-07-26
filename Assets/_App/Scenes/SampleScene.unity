@@ -403,7 +403,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1216882304
 GameObject:
@@ -578,79 +578,57 @@ RectTransform:
   - {fileID: 1216882305}
   - {fileID: 951163488}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1001 &904481148911213505
-PrefabInstance:
+--- !u!114 &481154182013284968
+MonoBehaviour:
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 729649101607250345, guid: 415dc4f1e07a84e4cb56df3695a0a136, type: 3}
-      propertyPath: _spinningCircle
-      value: 
-      objectReference: {fileID: 581413520}
-    - target: {fileID: 729649101607250345, guid: 415dc4f1e07a84e4cb56df3695a0a136, type: 3}
-      propertyPath: _wheelController
-      value: 
-      objectReference: {fileID: 951163489}
-    - target: {fileID: 7675638301163874070, guid: 415dc4f1e07a84e4cb56df3695a0a136, type: 3}
-      propertyPath: m_Name
-      value: Touch Controller
-      objectReference: {fileID: 0}
-    - target: {fileID: 8125048830249165582, guid: 415dc4f1e07a84e4cb56df3695a0a136, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8125048830249165582, guid: 415dc4f1e07a84e4cb56df3695a0a136, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8125048830249165582, guid: 415dc4f1e07a84e4cb56df3695a0a136, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8125048830249165582, guid: 415dc4f1e07a84e4cb56df3695a0a136, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8125048830249165582, guid: 415dc4f1e07a84e4cb56df3695a0a136, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8125048830249165582, guid: 415dc4f1e07a84e4cb56df3695a0a136, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8125048830249165582, guid: 415dc4f1e07a84e4cb56df3695a0a136, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8125048830249165582, guid: 415dc4f1e07a84e4cb56df3695a0a136, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8125048830249165582, guid: 415dc4f1e07a84e4cb56df3695a0a136, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8125048830249165582, guid: 415dc4f1e07a84e4cb56df3695a0a136, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8125048830249165582, guid: 415dc4f1e07a84e4cb56df3695a0a136, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 415dc4f1e07a84e4cb56df3695a0a136, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7352131399876525271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16fc10a17e08cfe469cfd5c3189b116c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _wheelController: {fileID: 951163489}
+  _spinningCircle: {fileID: 581413520}
+  _rotationSpeed: 0.1
+--- !u!1 &7352131399876525271
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8956714133858269391}
+  - component: {fileID: 481154182013284968}
+  m_Layer: 0
+  m_Name: Touch Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8956714133858269391
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7352131399876525271}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
