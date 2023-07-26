@@ -22,7 +22,7 @@ namespace _App.Scripts
             _touch = Input.GetTouch(0);
             if (_touch.phase != TouchPhase.Moved) return;
 
-            _rotation = Quaternion.Euler(0f, 0f, -_touch.deltaPosition.x * _rotationSpeed);
+            _rotation = Quaternion.Euler(0f, 0f, _touch.deltaPosition.y * _rotationSpeed);
             _spinningCircle.transform.rotation *= _rotation;
         }
     }
