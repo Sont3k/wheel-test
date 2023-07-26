@@ -17,8 +17,7 @@ namespace _App.Scripts
 
         [Header("Wheel Settings")]
         [Range(1, 20)] public int spinDuration = 8;
-        [SerializeField] [Range(.2f, 2f)] 
-        private float wheelSize = 1f;
+        [SerializeField] [Range(.2f, 2f)] private float wheelSize = 1f;
         [SerializeField] private bool _isIndicatorOnTop;
 
         [Header("Pieces")]
