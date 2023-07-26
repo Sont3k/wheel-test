@@ -23,7 +23,7 @@ namespace _App.Scripts
         [Header("Pieces")]
         public PieceModel[] wheelPieces;
 
-        private bool _isSpinning;
+        public bool IsSpinning { get; private set; }
 
         private readonly Vector2 _pieceMinSize = new(81f, 146f);
         private readonly Vector2 _pieceMaxSize = new(144f, 213f);
@@ -97,9 +97,9 @@ namespace _App.Scripts
 
         private void Spin(int pieceIndex)
         {
-            if (_isSpinning) return;
+            if (IsSpinning) return;
         
-            _isSpinning = true;
+            IsSpinning = true;
 
             var angle = -(_pieceAngle * pieceIndex);
 
@@ -131,7 +131,7 @@ namespace _App.Scripts
                 })
                 .OnComplete(() =>
                 {
-                    _isSpinning = false;
+                    IsSpinning = false;
                 });
         }
 
@@ -146,7 +146,7 @@ namespace _App.Scripts
         
         private void OnPieceClick(PieceView pieceView)
         {
-            if (_isSpinning) return;
+            if (IsSpinning) return;
             pieceView.DisablePiece();
             Spin(pieceView.Data.Index);
         }

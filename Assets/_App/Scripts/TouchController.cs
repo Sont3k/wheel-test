@@ -5,6 +5,7 @@ namespace _App.Scripts
     public class TouchController : MonoBehaviour
     {
         [Header("References")]
+        [SerializeField] private WheelController _wheelController;
         [SerializeField] private Transform _spinningCircle;
 
         [Header("Parameters")]
@@ -16,7 +17,7 @@ namespace _App.Scripts
 
         private void Update()
         {
-            if (Input.touchCount <= 0) return;
+            if (Input.touchCount <= 0 || _wheelController.IsSpinning) return;
 
             _touch = Input.GetTouch(0);
             if (_touch.phase != TouchPhase.Moved) return;
