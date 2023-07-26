@@ -17,7 +17,6 @@ namespace _App.Scripts
         [SerializeField] private Transform wheelCircle;
         [SerializeField] private PieceView wheelPiecePrefab;
         [SerializeField] private Transform wheelPiecesParent;
-        [SerializeField] private Button _spinButton;
 
         [Header("Wheel Settings")]
         [Range(1, 20)] public int spinDuration = 8;
@@ -61,11 +60,6 @@ namespace _App.Scripts
             }
         }
 
-        private void OnEnable()
-        {
-            _spinButton.onClick.AddListener(Spin);
-        }
-
         private void Start()
         {
             _pieceAngle = 360f / wheelPieces.Length;
@@ -77,11 +71,6 @@ namespace _App.Scripts
             CalculateWeightsAndIndices();
             if (_nonZeroChancesIndices.Count == 0)
                 Debug.LogError("You can't set all pieces chance to zero");
-        }
-
-        private void OnDisable()
-        {
-            _spinButton.onClick.RemoveAllListeners();
         }
 
         private void Generate()
@@ -108,7 +97,7 @@ namespace _App.Scripts
         {
             var pieceData = wheelPieces[index];
             var instantiatedPiece = Instantiate(wheelPiecePrefab, wheelPiecesParent);
-            instantiatedPiece.SetData(pieceData.Icon, pieceData.Label, pieceData.Amount.ToString());
+            instantiatedPiece.SetData(pieceData, OnPieceClick);
 
             DrawLine(index, instantiatedPiece.transform);
         }
@@ -121,14 +110,14 @@ namespace _App.Scripts
             pieceTransform.RotateAround(wheelPiecesParent.position, Vector3.back, _pieceAngle * index);
         }
 
-        private void Spin()
+        private void Spin(int pieceIndex = -1)
         {
             if (_isSpinning) return;
         
             _isSpinning = true;
             _onSpinStartEvent?.Invoke();
 
-            var index = GetRandomPieceIndex();
+            var index = pieceIndex != -1 ? pieceIndex : GetRandomPieceIndex();
             var piece = wheelPieces[index];
 
             if (piece.Chance == 0 && _nonZeroChancesIndices.Count != 0)
@@ -209,6 +198,13 @@ namespace _App.Scripts
                     _nonZeroChancesIndices.Add(i);
                 }
             }
+        }
+        
+        private void OnPieceClick(PieceView pieceView)
+        {
+            if (_isSpinning) return;
+            pieceView.DisablePiece();
+            Spin(pieceView.Data.Index);
         }
     }
 }

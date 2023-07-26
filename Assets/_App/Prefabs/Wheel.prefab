@@ -341,7 +341,6 @@ MonoBehaviour:
   wheelCircle: {fileID: 224131085478986710}
   wheelPiecePrefab: {fileID: 1477969062711435828, guid: a10fef7bc23b5a64a929387e97c9b936, type: 3}
   wheelPiecesParent: {fileID: 224747704442984086}
-  _spinButton: {fileID: 0}
   spinDuration: 5
   wheelSize: 1.354
   wheelPieces:
@@ -365,16 +364,6 @@ MonoBehaviour:
     Audio: {fileID: 0}
     Amount: 40
     Chance: 25
-  - Icon: {fileID: 21300008, guid: 6e980baa502e72148bbc79fb42c81d10, type: 3}
-    Label: Vallar
-    Audio: {fileID: 0}
-    Amount: 60
-    Chance: 10
-  - Icon: {fileID: 21300008, guid: 6e980baa502e72148bbc79fb42c81d10, type: 3}
-    Label: Vallar
-    Audio: {fileID: 0}
-    Amount: 60
-    Chance: 10
   - Icon: {fileID: 21300008, guid: 6e980baa502e72148bbc79fb42c81d10, type: 3}
     Label: Vallar
     Audio: {fileID: 0}
