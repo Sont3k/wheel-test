@@ -71,10 +71,10 @@ RectTransform:
   m_Father: {fileID: 224511889338460380}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 518, y: 518}
+  m_SizeDelta: {x: -60, y: -48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &222040760413120502
 CanvasRenderer:
@@ -224,10 +224,10 @@ RectTransform:
   m_Father: {fileID: 224511889338460380}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 276.1}
-  m_SizeDelta: {x: -1.4, y: 20.2}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: 25}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &222531946758338340
 CanvasRenderer:
@@ -348,27 +348,22 @@ MonoBehaviour:
     Label: Lorem
     Audio: {fileID: 0}
     Amount: 10
-    Chance: 100
   - Icon: {fileID: 21300002, guid: 6e980baa502e72148bbc79fb42c81d10, type: 3}
     Label: Iposum
     Audio: {fileID: 0}
     Amount: 20
-    Chance: 100
   - Icon: {fileID: 21300004, guid: 6e980baa502e72148bbc79fb42c81d10, type: 3}
     Label: Tupala
     Audio: {fileID: 0}
     Amount: 30
-    Chance: 60
   - Icon: {fileID: 21300030, guid: 6e980baa502e72148bbc79fb42c81d10, type: 3}
     Label: Consectetur
     Audio: {fileID: 0}
     Amount: 40
-    Chance: 25
   - Icon: {fileID: 21300008, guid: 6e980baa502e72148bbc79fb42c81d10, type: 3}
     Label: Vallar
     Audio: {fileID: 0}
     Amount: 60
-    Chance: 10
 --- !u!1 &1743374398951528
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,10 +398,10 @@ RectTransform:
   m_Father: {fileID: 224511889338460380}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000015258789, y: 0.000030517578}
-  m_SizeDelta: {x: 576, y: 576}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0.000030517578}
+  m_SizeDelta: {x: -2, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &222365574639651034
 CanvasRenderer:
@@ -479,10 +474,10 @@ RectTransform:
   m_Father: {fileID: 224534383298239444}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000015258789, y: 0.000091552734}
-  m_SizeDelta: {x: 537, y: 537}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0.000091552734}
+  m_SizeDelta: {x: -39, y: -39}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &222208328335284450
 CanvasRenderer:
